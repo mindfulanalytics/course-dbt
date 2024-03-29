@@ -3,8 +3,28 @@ version: 2
 models:
   - name: stg_postgres__addresses
     description: The adresses for each greenery user
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique 
+      - name: address
+      - name: zipcode
+      - name: state 
+      - name: country  
   - name: stg_postgres__events
     description: The events table for visits to the greenery website
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique 
+      - name: session_id
+      - name: user_id
+      - name: order_id
+      - name: product_id
+      
+
   - name: stg_postgres__order_items
     description: The itemization of a particular order
   - name: stg_postgres__orders

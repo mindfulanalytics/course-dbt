@@ -1,9 +1,5 @@
 # Week 1 Project
 
-##How many users do we have?
-
-# Week 1 Project
-
 ## How many users do we have?
 
 130 users
@@ -55,6 +51,15 @@ from dev_db.dbt_diegomindfulanalyticsgmailcom.stg_postgres__orders
 
 ```sql
 
+with cte as (
+
+select 
+    user_id,
+    count(*) as total_purchases
+from dev_db.dbt_diegomindfulanalyticsgmailcom.stg_postgres__orders
+group by 1
+)
+
 select 
     case 
         when total_purchases = 1 then '1 purchase'
@@ -62,7 +67,7 @@ select
         else '3+ purchases'
     end as total_purchases_categories,
     count(user_id) as total_users
-from cte 
+from cte
 group by 1
 order by 1 asc
 
