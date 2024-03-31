@@ -10,8 +10,11 @@ models:
           - unique 
       - name: address
       - name: zipcode
+        tests:
+          - not_null
       - name: state 
       - name: country  
+
   - name: stg_postgres__events
     description: The events table for visits to the greenery website
     columns:
@@ -27,11 +30,15 @@ models:
 
   - name: stg_postgres__order_items
     description: The itemization of a particular order
+
   - name: stg_postgres__orders
     description: Orders placed with greenery
+
   - name: stg_postgres__products
     description: List of greenery products with inventory count
+
   - name: stg_postgres__promos
     description: List of greenery promos, their discount, and status.
+
   - name: stg_postgres__users
     description: List of greenery users

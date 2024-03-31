@@ -6,7 +6,7 @@ select
     ADDRESS_ID, 
     TRACKING_ID,
     ----------    strings
-    STATUS,
+    STATUS as ORDER_STATUS,
     SHIPPING_SERVICE, 
     ----------    numerics
     ORDER_COST, 
