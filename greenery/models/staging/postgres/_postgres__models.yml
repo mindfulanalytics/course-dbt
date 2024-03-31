@@ -24,8 +24,20 @@ models:
           - unique 
       - name: session_id
       - name: user_id
+        tests:
+          - relationships:
+              to: ref('stg_postgres__users')
+              field: user_id
       - name: order_id
       - name: product_id
+      - name: event_type
+        tests:
+          - accepted_values:
+              values: 
+                - checkout
+                - package_shipped
+                - add_to_cart
+                - page_view
       
 
   - name: stg_postgres__order_items

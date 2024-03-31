@@ -1,6 +1,6 @@
 select 
     product_id,
-    name,
-    price,
-    inventory
+    name as product_name,
+    price as product_price,
+    inventory as product_inventory
 from {{ source('postgres', 'products') }}
