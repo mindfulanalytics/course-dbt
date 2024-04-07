@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fact_user_orders
+    description: "Order information grouped at the user level for marketing to create campaign audiences."
+    columns:
+      - name: user_id
+        data_type: varchar
+        description: "Unique user ID."
+
+      - name: total_orders
+        data_type: number
+        description: "Total orders the user has placed."
+
+      - name: total_spend
+        data_type: float
+        description: "Total money the user has spent."
+
+      - name: products_purchased
+        data_type: number
+        description: "Number of products the user has purchased"
+
+      - name: is_buyer
+        data_type: boolean
+        description: "Is buyer boolean flag."
+
+      - name: is_frequent_buyer
+        data_type: boolean
+        description: "Is frequent buyer boolean flag."
+
+      - name: first_order_created_at
+        data_type: timestamp_ntz
+        description: "Timestamp of the user's first order."
+
+      - name: last_order_created_at
+        data_type: timestamp_ntz
+        description: "Timestamp of the user's last order."

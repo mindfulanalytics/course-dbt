@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: fact_page_views
+    description: "One row per session_id, per user_id, product_id, session_started_at, and session_ended_at."
+    columns:
+      - name: session_id
+        data_type: varchar
+        description: "Unique identifier for a session."
+
+      - name: user_id
+        data_type: varchar
+        description: "Unique identifier for a user."
+
+      - name: product_id
+        data_type: varchar
+        description: "Unique identifier for a product."
+
+      - name: session_started_at
+        data_type: timestamp_ntz
+        description: "Timestamp for when that particular session, user, and product event started."
+
+      - name: session_ended_at
+        data_type: timestamp_ntz
+        description: "Timestamp for when that particular session, user, and product event ended."
+
+      - name: page_views
+        data_type: number
+        description: "Total number of page views."
+
+      - name: add_to_carts
+        data_type: number
+        description: "Total number of add to cart events."
+
+      - name: checkouts
+        data_type: number
+        description: "Total number of checkout events."
+
+      - name: packages_shipped
+        data_type: number
+        description: "Total number of packages shipped events."
+
+      - name: session_length_minutes
+        data_type: number
+        description: "Time difference between session started and session ended."

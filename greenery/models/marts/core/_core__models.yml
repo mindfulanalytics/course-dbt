@@ -1,0 +1,161 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: ""
+    columns:
+      - name: product_id
+        data_type: varchar
+        description: ""
+
+      - name: product_name
+        data_type: varchar
+        description: ""
+
+      - name: product_price
+        data_type: float
+        description: ""
+
+      - name: product_inventory
+        data_type: number
+        description: ""
+
+      - name: total_product_orders_sold
+        data_type: number
+        description: ""
+
+      - name: total_product_items_sold
+        data_type: number
+        description: ""
+
+      - name: total_product_revenue
+        data_type: float
+        description: ""
+
+      - name: first_product_order_created_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: last_product_order_created_at
+        data_type: timestamp_ntz
+        description: ""
+
+
+  - name: dim_users
+    description: ""
+    columns:
+      - name: user_id
+        data_type: varchar
+        description: ""
+
+      - name: address_id
+        data_type: varchar
+        description: ""
+
+      - name: first_name
+        data_type: varchar
+        description: ""
+
+      - name: last_name
+        data_type: varchar
+        description: ""
+
+      - name: email
+        data_type: varchar
+        description: ""
+
+      - name: phone_number
+        data_type: varchar
+        description: ""
+
+      - name: total_spend
+        data_type: float
+        description: ""
+
+      - name: total_orders
+        data_type: number
+        description: ""
+
+      - name: created_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: updated_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: first_order_created_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: last_order_created_at
+        data_type: timestamp_ntz
+        description: ""
+
+
+  - name: fact_orders
+    description: ""
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: ""
+
+      - name: user_id
+        data_type: varchar
+        description: ""
+
+      - name: promo_id
+        data_type: varchar
+        description: ""
+
+      - name: address_id
+        data_type: varchar
+        description: ""
+
+      - name: tracking_id
+        data_type: varchar
+        description: ""
+
+      - name: order_status
+        data_type: varchar
+        description: ""
+
+      - name: country
+        data_type: varchar
+        description: ""
+
+      - name: state
+        data_type: varchar
+        description: ""
+
+      - name: shipping_service
+        data_type: varchar
+        description: ""
+
+      - name: order_cost
+        data_type: float
+        description: ""
+
+      - name: shipping_cost
+        data_type: float
+        description: ""
+
+      - name: order_total
+        data_type: float
+        description: ""
+
+      - name: products_in_order
+        data_type: number
+        description: ""
+
+      - name: created_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: estimated_delivery_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: delivered_at
+        data_type: timestamp_ntz
+        description: ""
