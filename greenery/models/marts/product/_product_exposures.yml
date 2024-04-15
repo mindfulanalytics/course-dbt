@@ -1,0 +1,14 @@
+version: 2
+
+exposures:  
+  - name: Diego's Product Checkout Funnel Dashboard
+    description: >
+      Session, user, and product grain table that shows the checkout product funnel conversion for stakeholder's to explore.
+    type: dashboard
+    url: https://app.sigmacomputing.com/corise-dbt/workbook/workbook-4kUJmtu9k3ct3oUmHkyiH4?:link_source=share
+    maturity: high
+    owner:
+      name: Diego Galan
+      email: diego.mindfulanalytics@gmail.com
+    depends_on:
+      - ref('wide_product_funnel')

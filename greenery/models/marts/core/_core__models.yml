@@ -60,6 +60,10 @@ models:
         data_type: varchar
         description: ""
 
+      - name: full_name
+        data_type: varchar
+        description: ""
+
       - name: email
         data_type: varchar
         description: ""
