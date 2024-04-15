@@ -51,6 +51,30 @@ The product with the most week to week inventory fluctations as measured by aver
 | Philodendron     | 7                         |
 | Pothos           | 7                         |
 
+
+```sql
+
+with cte as (
+
+select 
+    *,
+    lag(inventory, 1) over (partition by product_id order by dbt_updated_at asc) as inventory_lag,
+    (lag(inventory, 1) over (partition by product_id order by dbt_updated_at asc) - inventory) as inventory_difference
+from dev_db.dbt_diegomindfulanalyticsgmailcom.products_snapshot ps
+order by 2 asc, 6 desc
+
+)
+
+select 
+    name as product_name,
+    round(avg(inventory_difference),0) as avg_inventory_fluctuation
+from cte 
+where inventory_difference is not null
+group by 1
+order by 2 desc
+
+```
+
 ### Did we have any items go out of stock in the last 3 weeks?
 
 Both **Photos** and **String of pearls** went out of stock in week 3 of the course
@@ -66,13 +90,19 @@ Users are moving/converting:
 
 The step in the checkout funnel with the largest drop is from product page view to add to carts. This makes me think about how we might be able to incentivice more people to add the product they view to their carts. Maybe with a promo? This line of thought makes me want to add promos to order_id and promos to this wide table so we can report on the ability of promos to improve add to cart conversion.
 
+### Bonus
+
+Here's the link to the published sigma dashboard:
+
+https://app.sigmacomputing.com/corise-dbt/workbook/workbook-4kUJmtu9k3ct3oUmHkyiH4?:link_source=share 
+
 ## Part 3: Reflection questions
 
 ### 3A. dbt next steps for you
 
 #### If your organization is thinking about using dbt, how would you pitch the value of dbt/analytics engineering to a decision maker at your organization?
 
-dbt is a SQL and jinja, pythonic templating language, transformation tool that enables data analysts to implement engineering best practices to their data pipelines. It enables us to build version controlled modular data models with documentation, testing, alerting, performance reporting for our Data Warehouse, Data Lake, or Lakehouse of choice. With it, we can better model our business, and improve our ability to service various BI and operatioal use cases with high quality and transparent pipelines that inspire trust for our team and our upstream and downstream stakeholders.
+dbt is a transformation tool that leverages SQL and jinja, a pythonic templating language, to enable data analysts to implement data engineering best practices to our data project. It enables us to build version controlled and modular data models with documentation, testing, alerting, and performance reporting. With it, we can better model our business, and improve our ability to service various BI and operatioal use cases. We can build high quality data pipleines that inpsire trust to both our upstream and our downstream stakeholders.
 
 #### If you are thinking about moving to analytics engineering, what skills have you picked that give you the most confidence in pursuing this next step?
 
